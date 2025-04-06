@@ -1,0 +1,5 @@
+
+<svg width="200" height="60" viewBox="0 0 200 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M35 10C21.7 10 11 20.7 11 34s10.7 24 24 24 24-10.7 24-24S48.3 10 35 10zm10 28h-8v8h-4v-8h-8v-4h8v-8h4v8h8v4z" fill="#1E3A8A"/>
+  <text x="70" y="36" font-family="Montserrat, sans-serif" font-size="20" font-weight="bold" fill="#1E3A8A">UMUCO BUS</text>
+</svg>
