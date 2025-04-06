@@ -8,6 +8,7 @@ import { AuthProvider } from "./contexts/AuthContext";
 import HomePage from "./pages/HomePage";
 import SearchPage from "./pages/SearchPage";
 import SeatSelectionPage from "./pages/SeatSelectionPage";
+import CheckoutPage from "./pages/CheckoutPage";
 import RoutesPage from "./pages/RoutesPage";
 import SupportPage from "./pages/SupportPage";
 import LoginPage from "./pages/LoginPage";
@@ -30,6 +31,7 @@ const App = () => (
             <Route path="/routes" element={<RoutesPage />} />
             <Route path="/support" element={<SupportPage />} />
             <Route path="/select-seat/:busId" element={<SeatSelectionPage />} />
+            <Route path="/checkout" element={<CheckoutPage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/register" element={<RegisterPage />} />
             <Route path="/dashboard" element={<DashboardPage />} />

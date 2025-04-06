@@ -3,12 +3,25 @@ import React from 'react';
 import { SelectedSeatsSummaryProps } from '../types';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const SelectedSeatsSummary: React.FC<SelectedSeatsSummaryProps> = ({ 
   selectedSeats, 
   calculateTotal,
   onProceedToCheckout 
 }) => {
+  const navigate = useNavigate();
+  
+  const handleProceed = () => {
+    // Navigate to checkout with selected seats and total
+    navigate('/checkout', { 
+      state: { 
+        selectedSeats, 
+        total: calculateTotal() + 500 // Adding booking fee
+      } 
+    });
+  };
+  
   if (selectedSeats.length === 0) {
     return (
       <div className="text-center py-8 text-gray-500">
@@ -53,7 +66,7 @@ const SelectedSeatsSummary: React.FC<SelectedSeatsSummaryProps> = ({
       
       <Button 
         className="w-full bg-rwanda-blue hover:bg-blue-800"
-        onClick={onProceedToCheckout}
+        onClick={handleProceed}
       >
         Proceed to Payment
         <ArrowRight className="ml-2 h-4 w-4" />
