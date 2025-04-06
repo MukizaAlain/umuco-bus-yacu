@@ -116,15 +116,15 @@ const locations = Array.from(
 ).sort();
 
 export default function RoutesPage() {
-  const [fromLocation, setFromLocation] = useState<string>('');
-  const [toLocation, setToLocation] = useState<string>('');
+  const [fromLocation, setFromLocation] = useState<string>('any-location');
+  const [toLocation, setToLocation] = useState<string>('any-location');
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [sortBy, setSortBy] = useState<string>('price');
 
   // Filter and sort routes based on user selections
   const filteredRoutes = routesData.filter((route) => {
-    const matchesFrom = !fromLocation || route.from === fromLocation;
-    const matchesTo = !toLocation || route.to === toLocation;
+    const matchesFrom = fromLocation === 'any-location' || route.from === fromLocation;
+    const matchesTo = toLocation === 'any-location' || route.to === toLocation;
     const matchesSearch = !searchQuery || 
       route.from.toLowerCase().includes(searchQuery.toLowerCase()) || 
       route.to.toLowerCase().includes(searchQuery.toLowerCase());
@@ -167,7 +167,7 @@ export default function RoutesPage() {
                     <SelectValue placeholder="Select departure" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="">Any location</SelectItem>
+                    <SelectItem value="any-location">Any location</SelectItem>
                     {locations.map((location) => (
                       <SelectItem key={location} value={location}>{location}</SelectItem>
                     ))}
@@ -181,7 +181,7 @@ export default function RoutesPage() {
                     <SelectValue placeholder="Select destination" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="">Any location</SelectItem>
+                    <SelectItem value="any-location">Any location</SelectItem>
                     {locations.map((location) => (
                       <SelectItem key={location} value={location}>{location}</SelectItem>
                     ))}
