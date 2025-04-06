@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -211,7 +210,7 @@ export default function SeatSelection() {
                       ))}
                       
                       {/* Add aisle between B and C */}
-                      {seatIndex === 1 && <div className="w-4"></div>}
+                      
                     </div>
                   </div>
                 ))}
