@@ -1,5 +1,5 @@
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import Layout from '@/components/layout/Layout';
@@ -20,14 +20,16 @@ import {
 export default function DashboardPage() {
   const { user, isAuthenticated, isLoading } = useAuth();
   const navigate = useNavigate();
+  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
+    setIsMounted(true);
     if (!isLoading && !isAuthenticated) {
       navigate('/login');
     }
   }, [isAuthenticated, isLoading, navigate]);
 
-  if (isLoading) {
+  if (!isMounted || isLoading) {
     return (
       <Layout>
         <div className="flex items-center justify-center min-h-[calc(100vh-200px)]">
